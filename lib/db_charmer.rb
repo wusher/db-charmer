@@ -9,9 +9,13 @@ module DbCharmer
     autoload :ForceSlaveReads, 'db_charmer/action_controller/force_slave_reads'
   end
 
+  def self.rails4?
+    ::ActiveRecord::VERSION::MAJOR > 3
+  end
+
   # Used in all Rails3-specific places
   def self.rails3?
-    ::ActiveRecord::VERSION::MAJOR > 2
+    ::ActiveRecord::VERSION::MAJOR > 2.5
   end
 
   # Used in all Rails3.1-specific places
